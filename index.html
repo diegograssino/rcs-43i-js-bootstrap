@@ -52,10 +52,11 @@
 	<main class="container">
 		<div class="d-flex flex-column mb-4">
 			<input type="text" class="form-control mb-2
-			" id="search" placeholder="Search ...">
+			" id="search" placeholder="Search ..." id="search">
 			<div class="d-flex gap-2 justify-content-end">
-				<button type="button" class="btn btn-outline-secondary">Ascendente</button>
-				<button type="button" class="btn btn-success" disabled>Descendente</button>
+				<span>Ordenar por precio:</span>
+				<button type="button" class="btn btn-outline-success" id="asc">Ascendente</button>
+				<button type="button" class="btn btn-success disabled" id="des">Descendente</button>
 			</div>
 		</div>
 		<section id="catalogue" class="row row-cols-1 row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-1 mb-5"></section>

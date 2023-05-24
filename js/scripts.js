@@ -238,13 +238,32 @@ const MOCKDATA = [
     rating: { rate: 3.6, count: 145 },
   },
 ];
-
+const products = MOCKDATA.sort(
+  (a, b) => b.price - a.price
+);
 // 2- Seleccionar elementos HTML
 const catalogue =
   document.getElementById('catalogue');
 
+const asc = document.getElementById('asc');
+const des = document.getElementById('des');
+
+asc.addEventListener('click', () => {
+  asc.className = 'btn btn-success disabled';
+  des.className = 'btn btn-outline-success';
+  products.sort((a, b) => a.price - b.price);
+});
+des.addEventListener('click', () => {
+  des.className = 'btn btn-success disabled';
+  asc.className = 'btn btn-outline-success';
+  products.sort((a, b) => b.price - a.price);
+});
+
 // 3- Trabajo con la lógica
-MOCKDATA.forEach(data => {
+// SORT ascendente = array.sort((a,b)=>(a-b))
+// SORT descendente = array.sort((a,b)=>(b-a))
+
+products.forEach(data => {
   // 1 Creo el contenedor o primer elemento
   const card = document.createElement('div');
   card.className = 'col';
@@ -258,7 +277,7 @@ MOCKDATA.forEach(data => {
 				</div>
 				<div class="card-footer d-flex flex-column">
 						<p class="h5 text-end">$${data.price}</p>
-						<button class="btn btn-primary" onClick="alert('Comprado!');">Comprar</button>
+						<button class="btn btn-primary">Comprar</button>
 				</div>
 			</article>
 	`;
