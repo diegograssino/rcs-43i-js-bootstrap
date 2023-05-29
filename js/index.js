@@ -1,4 +1,4 @@
-// import 'bootstrap/dist/js/bootstrap';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js';
 import { renderCatalogue } from './helpers.js';
 import { mockData } from './mock.js';
 
@@ -6,6 +6,7 @@ import { mockData } from './mock.js';
 const products = mockData.sort(
   (a, b) => b.price - a.price
 );
+
 // 2- Seleccionar elementos HTML
 const catalogue =
   document.getElementById('catalogue');
@@ -19,16 +20,20 @@ const des = document.getElementById('des');
 
 // Logica de los botones ascendente y descendente
 asc.addEventListener('click', () => {
-  asc.className = 'btn btn-success disabled';
-  des.className = 'btn btn-outline-success';
+  asc.className =
+    'btn very-small-font-size btn-dark disabled py-0 px-1 border-0';
+  des.className =
+    'btn very-small-font-size btn-outline-dark py-0 px-1 border-0';
   renderCatalogue(
     products.sort((a, b) => a.price - b.price),
     catalogue
   );
 });
 des.addEventListener('click', () => {
-  des.className = 'btn btn-success disabled';
-  asc.className = 'btn btn-outline-success';
+  des.className =
+    'btn very-small-font-size btn-dark disabled py-0 px-1 border-0';
+  asc.className =
+    'btn very-small-font-size btn-outline-dark py-0 px-1 border-0';
   renderCatalogue(
     products.sort((a, b) => b.price - a.price),
     catalogue

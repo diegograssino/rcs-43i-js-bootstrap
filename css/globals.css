@@ -1,6 +1,5 @@
 @import url("../node_modules/bootstrap/dist/css/bootstrap.css");
 
-.white-space-nowrap {
-	overflow: hidden;
-	max-width: 75ch;
+.very-small-font-size {
+	font-size: 14px;
 }
