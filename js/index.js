@@ -7,12 +7,22 @@ const products = mockData.sort(
   (a, b) => b.price - a.price
 );
 
+// Elimino duplicados casteando a set y recasteando a array
+// https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set
+const categories = Array.from(
+  new Set(mockData.map(data => data.category))
+);
+categories.push('Todos');
+
 // 2- Seleccionar elementos HTML
 const catalogue =
   document.getElementById('catalogue');
 
 const asc = document.getElementById('asc');
 const des = document.getElementById('des');
+const categoryFilter = document.getElementById(
+  'categoryFilter'
+);
 
 // 3- Trabajo con la lógica
 // SORT ascendente = array.sort((a,b)=>(a-b))
@@ -38,6 +48,18 @@ des.addEventListener('click', () => {
     products.sort((a, b) => b.price - a.price),
     catalogue
   );
+});
+
+categoryFilter.innerHTML = '';
+categories.forEach(category => {
+  const li = document.createElement('li');
+  li.innerHTML = `
+	 <button class="dropdown-item text-capitalize">${category}</button>
+	`;
+  li.addEventListener('click', () =>
+    console.log(category)
+  );
+  categoryFilter.appendChild(li);
 });
 
 renderCatalogue(products, catalogue);

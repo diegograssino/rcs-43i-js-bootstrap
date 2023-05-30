@@ -39,7 +39,9 @@ export const renderCatalogue = (array, id) => {
 					</div>
 					<div class="card-footer d-flex flex-column">
 							<p class="h5 text-end">$${data.price}</p>
-							<button class="btn btn-outline-primary">Ver</button>
+							<a href="/product/index.html?id=${
+                data.id
+              }" class="btn btn-outline-primary">Ver</a>
 					</div>
 				</article>
 		`;
