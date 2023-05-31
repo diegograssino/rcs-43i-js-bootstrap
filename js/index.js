@@ -3,9 +3,10 @@ import { renderCatalogue } from './helpers.js';
 import { mockData } from './mock.js';
 
 // 1- Inicialiciones de variables/ constantes
-const products = mockData.sort(
+const productsDatabase = mockData.sort(
   (a, b) => b.price - a.price
 );
+let products = productsDatabase;
 
 // Elimino duplicados casteando a set y recasteando a array
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set
@@ -23,7 +24,15 @@ const des = document.getElementById('des');
 const categoryFilter = document.getElementById(
   'categoryFilter'
 );
-
+const search = document.getElementById('search');
+search.addEventListener('input', () => {
+  products = productsDatabase.filter(product =>
+    product.title
+      .toLowerCase()
+      .includes(search.value.toLowerCase())
+  );
+  renderCatalogue(products, catalogue);
+});
 // 3- Trabajo con la lógica
 // SORT ascendente = array.sort((a,b)=>(a-b))
 // SORT descendente = array.sort((a,b)=>(b-a))
