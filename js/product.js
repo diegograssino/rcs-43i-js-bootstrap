@@ -22,25 +22,28 @@ if (product) {
   // image.src = product.image;
   // title.innerText = product.title;
   // price.innerText += product.price;
-  main.innerHTML = `<article class="card border-0">
-			<h6 class="pt-2 px-2"><span class="badge bg-primary text-uppercase" id="category">${product.category}</span></h6>
-			<img src=${product.image} class="object-fit-contain pt-2 px-2" style="height: 250px" id="image">
-			<div class="card-body">
-				<h4 class="card-title" id="title">${product.title}</h4>
-				<p class="pt-2">${product.description}</p>
-			</div>
-			<div class="card-footer d-flex flex-column pt-4 pb-3">
-				<p class="h5 text-end pe-1" id="price">$${product.price}</p>
-				<div class="d-flex justify-content-between">
+  main.innerHTML = `
+	<article class="card border-0">
+		<h6 class="pt-2 px-2">
+			<span class="badge bg-primary text-uppercase" id="category">${product.category}</span>
+		</h6>
+		<img src=${product.image} class="object-fit-contain pt-2 px-2" style="height: 250px" id="image">
+		<div class="card-body">
+			<h4 class="card-title" id="title">${product.title}</h4>
+			<p class="pt-2">${product.description}</p>
+		</div>
+		<div class="card-footer d-flex flex-column pt-4 pb-3">
+			<p class="h5 text-end pe-1" id="price">$${product.price}</p>
+			<div class="d-flex justify-content-between">
 				<div>
-										<button class="btn btn-outline-primary">+</button>
-										<span class="px-2">1</span>
-															<button class="btn btn-outline-primary">-</button>
-					</div>
-					<button class="btn btn-outline-primary">Agregar al carrito</button>
+					<button class="btn btn-outline-primary">+</button>
+					<span class="px-2">1</span>
+					<button class="btn btn-outline-primary">-</button>
 				</div>
+				<button class="btn btn-outline-primary">Agregar al carrito</button>
 			</div>
-		</article>`;
+		</div>
+	</article>`;
 } else {
   main.innerHTML = `<h2>404 product not found</h2>`;
 }
